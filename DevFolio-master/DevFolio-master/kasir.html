@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Aplikasi Kasir Sederhana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .kasir-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .produk {
+            margin-bottom: 15px;
+        }
+
+        .produk label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .produk input {
+            width: 100%;
+            padding: 5px;
+            text-align: center;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .total {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="kasir-container">
+    <h2>Aplikasi Kasir</h2>
+
+    <div class="produk">
+        <label>Produk A (Rp10.000)</label>
+        <input type="number" id="produkA" value="0" min="0">
+    </div>
+
+    <div class="produk">
+        <label>Produk B (Rp20.000)</label>
+        <input type="number" id="produkB" value="0" min="0">
+    </div>
+
+    <div class="produk">
+        <label>Produk C (Rp30.000)</label>
+        <input type="number" id="produkC" value="0" min="0">
+    </div>
+
+    <button onclick="hitungTotal()">Hitung Total</button>
+
+    <div class="total">
+        Total: Rp<span id="hasil">0</span>
+    </div>
+</div>
+
+<script>
+    function hitungTotal() {
+        const hargaA = 10000;
+        const hargaB = 20000;
+        const hargaC = 30000;
+
+        const jumlahA = parseInt(document.getElementById("produkA").value) || 0;
+        const jumlahB = parseInt(document.getElementById("produkB").value) || 0;
+        const jumlahC = parseInt(document.getElementById("produkC").value) || 0;
+
+        const total = (jumlahA * hargaA) + (jumlahB * hargaB) + (jumlahC * hargaC);
+
+        document.getElementById("hasil").textContent = total.toLocaleString("id-ID");
+    }
+</script>
+
+</body>
+</html>
